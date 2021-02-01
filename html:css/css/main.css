@@ -1,0 +1,327 @@
+* {
+    box-sizing: border-box;
+}
+/*
+.profile {
+    width: 200px;
+    display: block;
+    margin: 100px auto 0px;
+}
+.name {
+    font-size: 26px;
+    text-align: center;
+}
+.special {
+    font-size: 16px;
+    text-align: center;
+}
+
+.description {
+    width: 400px;
+    background-color: cadetblue;
+    margin: 50px auto 0px;
+    padding: 30px;
+    color: white;
+    border-radius: 20px;
+}
+
+.container {
+    width: 800px;
+}
+
+.header {
+    width: 100%;
+    height: 50px;
+    background-color: aquamarine;
+}
+
+.left {
+    width: 20%;
+    height: 500px;
+    background-color: cornflowerblue;
+    float: left;
+}
+
+.right {
+    width: 80%;
+    height: 500px;
+    background-color: coral;
+    float: left;
+}
+
+.footer {
+    width: 100%;
+    height: 50px;
+    background-color: gray;
+    clear: both;
+}
+
+.container {
+    width: 800px;
+}
+
+.header {
+    width: 100%;
+    height: 50px;
+    background-color: aquamarine;
+}
+
+.left {
+    width: 20%;
+    height: 500px;
+    background-color: cadetblue;
+    display: inline-block;
+}
+
+.right {
+    width: 70%;
+    height: 500px;
+    background-color: coral;
+    display: inline-block;
+    vertical-align: top;
+}
+* {
+    box-sizing: border-box;
+}
+.cotainer {
+    width: 800px;
+    display: flex;
+    margin: 50px auto 0px;
+}
+
+.left {
+    width: 70%;
+    height: 250px;
+}
+
+.right {
+    width: 30%;
+    height: 250px;
+}
+
+.profile {
+    width: 100%;
+    height: 20%;
+    display: flex;
+}
+
+.title {
+    width: 100%;
+    height: 20%;
+}
+
+.content {
+    width: 100%;
+    height: 60%;
+}
+.li-inline li{
+    display: inline-block;
+    width: 60px;
+    text-align: center;
+}
+
+.navbar {
+    width: 800px;
+    margin: auto;
+    margin-bottom: 50px;
+    padding: 20px;
+}
+
+.li-inline a {
+    text-decoration: none;
+}
+
+.li-inline a:visited {
+    color: black;
+}
+*/
+
+body {
+    margin: 0px;
+}
+
+.main-background {
+    width: 100%;
+    height: 500px;
+    background-image: url(../img/shoes.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding-top: 150px;
+    position: relative;
+}
+
+
+.main-title {
+    color: white;
+    font-size: 30px;
+}
+
+.main-title-box {
+    text-align: center;
+}
+
+.main-content {
+    padding: 20px;
+    color: white;
+    font-size: 18px;
+}
+
+.main-button {
+    padding: 10px;
+    font-size: 18px;
+    font-family: 'nanumsquare';
+    background-color: white;
+    border: none;
+    display: block;
+    margin: auto;
+}
+
+.position {
+    position: absolute;
+    bottom: 80px;
+    left: 0px;
+    right: 0px;
+    margin: auto;
+    width: 150px;
+}
+
+.sub-box {
+    width: 80%;
+    max-width: 800px;
+    margin: 0px auto;
+    text-align: center;
+    padding: 50px;
+    background-color: lightgray;
+    position: relative;
+    top: -50px;
+    box-sizing: border-box;
+}
+
+.form-background {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.81);
+    margin-top: 150px;
+    padding: 20px;
+}
+
+.form-white {
+    width: 90%;
+    max-width: 700px;
+    padding: 20px;
+    background-color: white;
+    margin: auto;
+}
+
+.form-input {
+    padding: 15px;
+    font-size: 18px;
+    border-radius: 4px;
+    border: 1px solid lightgray;
+    width: 100%;
+}
+
+.form-half {
+    width: 50%;
+    float: left;
+    padding: 10px;
+}
+
+.form-whole {
+    padding: 10px;
+}
+
+.form-submit {
+    width: 200px;
+    border-radius: 4px;
+    border: none;
+    padding: 10px;
+    background-color: darkorange;
+    color: white;
+    font-size: 18px;
+    margin-left: auto;
+    display: block;
+    margin-right: 10px;
+}
+
+td, th {
+    padding: 10px;
+    vertical-align: middle;
+    color: cadetblue;
+    text-align: right;
+}
+th {
+    text-align: right;
+    font-size: 14px;
+}
+th:nth-of-type(2), td:nth-of-type(2) {
+    text-align: left
+}
+span {
+    font-weight: bold;
+    color: black;
+}
+td:last-of-type {
+    font-weight: bold;
+}
+tr {
+    border: 1px solid cadetblue;
+}
+
+table {
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 10px;
+    width: 100%;
+}
+
+body {
+    background-color: cadetblue;
+}
+
+.homeword3-s-container {
+    
+}
+
+.homework3-container {
+    margin: 100px auto;
+    width: 80%;
+}
+
+a {
+    color: black;
+}
+
+.btn {
+    padding: 10px;
+    font-size: 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.btn:hover {
+    background-color: chocolate;
+}
+.btn:active {
+    background-color: brown;
+}
+
+.custom-link {
+    text-decoration: none;
+}
+.custom-link:link {
+    color: black;
+}
+.custom-link:visited {
+    color: red;
+}
+
+.btn-brown {
+    background-color: coral;
+    color: white;
+}
+
+.btn-red {
+    color: white;
+    background: red;
+}

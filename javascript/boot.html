@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
+    <title>Hello, world!</title>
+    <script src="https://kit.fontawesome.com/07b67006ce.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <div class="left-menu">
+        <p>Menu Ttitle</p>
+    </div>
+
+    <div class="black-background" id="black">
+        <div class="white-background">
+            <p>로그인하세요</p>
+            <form action="login.php">
+                <div class="form-group">
+                    <input type="email" class="form-control" placeholder="Email">
+                    <p id="email-alert">이메일이 빈칸입니다.</p>
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" placeholder="Password">
+                    <p id="pw-alert">비밀번호가 빈칸입니다.</p>
+                </div>
+                <button type="submit" class="btn btn-primary">전송</button>
+                <input type="button" value="닫기" class="btn close-btn">
+            </form>
+        </div>
+    </div>
+    <script>
+        $('#black').click(function(e) {
+            // e.target; // 지금 실제로 클릭한 요소
+            // e.currentTarget; // 지금 이벤트리스너가 달린 곳
+            // $(this); 위와 같은 객체
+            // e.preventDefault(); // 기본동작 막기
+            if(e.target != e.currentTarget) {
+                e.preventDefault();
+            } else {
+                $('.black-background').removeClass('alert-down');
+                $('#email-alert').hide();
+                $('#pw-alert').hide();
+            }
+        })
+    </script>
+
+    <div class="nav-menu">
+        <span class="logo">Shirts Studio</span>
+        <a id="nav-sub-button">Products</a>
+    </div>
+
+    <ul class="list-group nav-sub">
+        <li class="list-group-item">Outer</li>
+        <li class="list-group-item">Innerwear</li>
+        <li class="list-group-item">Shirts</li>
+    </ul>
+
+    <script>
+        $(document).scroll(function() {
+            if ($(document).scrollTop() >= 40) {
+                $('.nav-menu').addClass('nav-black');
+                $('.logo').addClass('logo-black');
+            } else {
+                $('.nav-menu').attr('class', 'nav-menu');
+                $('.logo').attr('class', 'logo');
+            }
+        })
+    </script>
+
+    <div class="jumbotron main-background">
+        <h1 class="display-4">Shirts Studio</h1>
+        <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+        <hr class="my-4">
+        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+        <a id="login" class="btn btn-primary btn-lg" href="#" role="button">Log in</a>
+        <a id="show-menu" class="btn btn-danger btn-lg" href="#" role="button">Show Menu</a>
+
+    </div>
+
+    <h4 class="my-4 text-center">Showcase</h4>
+    <div style="overflow: hidden">
+        <div class="slide-container">
+            <div class="slide-box"><img src="img/01.jpg" alt=""></div>
+            <div class="slide-box"><img src="img/02.jpg" alt=""></div>
+            <div class="slide-box"><img src="img/04.jpg" alt=""></div>
+        </div>
+        <div class="trigger">
+            <i class="fas fa-chevron-left fa-2x"></i>
+            <i class="fas fa-chevron-right fa-2x"></i>
+        </div>
+    </div>
+    <button class="slide-1">1</button>
+    <button class="slide-2">2</button>
+    <button class="slide-3">3</button>
+
+    <div class="my-5"></div>
+
+    <script>
+        let index = 1;
+        let lastNo = 3;
+        $('.slide-1').click(function() {
+            $('.slide-container').attr('class', 'slide-container slide-transform-1');
+            index = 1;
+        });
+        $('.slide-2').click(function() {
+            $('.slide-container').attr('class', 'slide-container slide-transform-2');
+            index = 2;
+        });
+        $('.slide-3').click(function() {
+            $('.slide-container').attr('class', 'slide-container slide-transform-3');
+            index = 3;
+        });
+        $('.fa-chevron-left').click(function() {
+            if (index > 1) {
+                $('.slide-container').attr('class', 'slide-container slide-transform-' + (index - 1));
+                index = index - 1;
+            } else {
+                $('.slide-container').attr('class', 'slide-container slide-transform-' + lastNo);
+                index = lastNo;
+            }
+        });
+        $('.fa-chevron-right').click(function() {
+            if (index < 3) {
+                $('.slide-container').attr('class', 'slide-container slide-transform-' + (index + 1));
+                index = index + 1;
+            } else {
+                $('.slide-container').attr('class', 'slide-container slide-transform-' + 1);
+                index = 1;
+            }
+        });
+    </script>
+
+    <script>
+        //        $('#login').click(function() {
+        //            if ($('#text-input').val() == '안녕') {
+        //                $('.black-background').fadeIn();
+        //            }
+        //        });
+        $('#show-menu').click(function() {
+            $('.left-menu').animate({
+                marginLeft: '0px'
+            }, 1000)
+        });
+
+        let emailRegExp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+        let pwRegExp = /(?=.*[A-Z])^[A-Za-z0-9]{6,12}$/;
+        $('form').submit(function(e) {
+            //            if($('.form-control').eq(0).val() == '') {
+            //                e.preventDefault();
+            //                $('#email-alert').show();
+            //            }
+            //            if(!emailRegExp.test($('.form-control').eq(0).val())) {
+            //                e.preventDefault();
+            //                $('#email-alert').show();
+            //            }
+            if ($('.form-control').eq(0).val() == '') {
+                e.preventDefault();
+                alert('이메일을 입력하세요.');
+            } else if (!emailRegExp.test($('.form-control').eq(0).val())) {
+                e.preventDefault();
+                alert('이메일을 옳바른 형태로 입력하세요.');
+            } else if ($('.form-control').eq(1).val() == '') {
+                e.preventDefault();
+                alert('비밀번호를 입력하세요.');
+            } else if (!pwRegExp.test($('.form-control').eq(1).val())) {
+                e.preventDefault();
+                alert('비밀번호를 옳바른 형태로 입력하세요.');
+            }
+        });
+
+        //        $('form').submit(function(e) {
+        //            if($('.form-control').eq(1).val() == '') {
+        //                e.preventDefault();
+        //                $('#pw-alert').show();
+        //            }
+        //            if(!pwRegExp.test($('.form-control').eq(1).val())) {
+        //                e.preventDefault();
+        //                $('#pw-alert').show();
+        //            }
+        //        });
+
+        $('#login').click(function() {
+            $('.black-background').addClass('alert-down');
+            $('#email-alert').hide();
+            $('#pw-alert').hide();
+        });
+        if (3 > 1) {
+            console.log('안녕');
+        }
+
+        $('.close-btn').click(function() {
+            $('.black-background').removeClass('alert-down');
+            $('#email-alert').hide();
+            $('#pw-alert').hide();
+        });
+
+        $('#nav-sub-button').click(function() {
+            $('.nav-sub').slideToggle();
+        });
+
+
+        let first_coffee = 360;
+        let drunk_coffee = 0;
+        let repeal1 = first_coffee * 2 / 3;
+        let repeal2 = repeal1 * 2 / 3;
+
+        drunk_coffee = first_coffee + repeal1 + repeal2;
+
+        console.log(drunk_coffee);
+    </script>
+    <style>
+        ul.list {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            border-bottom: 1px solid #ccc;
+        }
+
+        ul.list::after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+        .tab-button {
+            display: block;
+            padding: 10px 20px 10px 20px;
+            float: left;
+            margin-right: -1px;
+            margin-bottom: -1px;
+            color: grey;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .active {
+            border-top: 2px solid orange;
+            border-right: 1px solid #ccc;
+            border-bottom: 1px solid white;
+            border-left: 1px solid #ccc;
+            color: black;
+            margin-top: -2px;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 10px;
+        }
+
+        .show {
+            display: block;
+        }
+    </style>
+
+
+    <div class="container mt-5">
+        <ul class="list">
+            <li class="tab-button">Products</li>
+            <li class="tab-button active">Information</li>
+            <li class="tab-button">Shipping</li>
+        </ul>
+
+        <div class="tab-content">
+            <p>상품설명입니다. Product</p>
+        </div>
+        <div class="tab-content show">
+            <p>상품정보입니다. Info</p>
+        </div>
+        <div class="tab-content">
+            <p>배송정보입니다. Shipping</p>
+        </div>
+    </div>
+    
+    <script src="tab.js"></script>
+
+    <h4 id="title">상품제목</h4>
+    <p id="text">상품내용</p>
+    <div style="margin-bottom: 500px"></div>
+    
+    <script>
+        let 어레이 = ['BMW', 520];
+        let 오브젝트 = {brand: 'BMW', model: 520}
+        
+        let 자료 = [{brand: 'BMW'}, {model: 520}]
+        
+        document.getElementById('title').textContent = 어레이[0]
+        //$('p').last().text(오브젝트.model);
+        $('p').last().text(자료[1].model);
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+</body></html>
