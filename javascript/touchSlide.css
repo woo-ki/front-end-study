@@ -1,0 +1,32 @@
+.slide-container {
+    position: relative;
+    width: 300vw;
+    display: flex;
+}
+
+.slide-box {
+    width: 100vw;
+    height: 60vw;
+    text-align: center;
+}
+
+.slide-box img {
+    height: 100%;
+    width: auto;
+}
+
+.slide-transform-1 {
+    transform: translateX(0vw);
+}
+
+.slide-transform-2 {
+    transform: translateX(-100vw);
+}
+
+.slide-transform-3 {
+    transform: translateX(-200vw);
+}
+
+.transforming {
+    transition: transform 0.5s;
+}
