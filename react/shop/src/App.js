@@ -1,9 +1,18 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Row, Col, Nav, Navbar, NavDropdown, Button, Jumbotron } from 'react-bootstrap';
+import data from './data.js';
 
 function App() {
+
+  let [shoes, shoes변경] = useState(data);
+
+  function fn_changeShoe() {
+    let array = [...shoes];
+    shoes변경(array);
+  }
+
   return (
     <div className="App">
       <Navbar bg="light" expand="lg">
@@ -36,10 +45,10 @@ function App() {
 
       <Container>
         <Row>
-          <Col>
+          {/* <Col>
             <img alt="없어" src="https://codingapple1.github.io/shop/shoes1.jpg" width="100%" />
-            <h4>상품명</h4>
-            <p>상품설명 &amp; 가격</p>
+            <h4>{shoes[0].title}</h4>
+            <p>{shoes[0].content} &amp; {shoes[0].price}</p>
           </Col>
           <Col>
             <img alt="없어" src="https://codingapple1.github.io/shop/shoes2.jpg" width="100%" />
@@ -50,12 +59,29 @@ function App() {
             <img alt="없어" src="https://codingapple1.github.io/shop/shoes3.jpg" width="100%" />
             <h4>상품명</h4>
             <p>상품설명 &amp; 가격</p>
-          </Col>
+          </Col> */}
+          {
+            shoes.map((key) => {
+              return (
+                <Info shoes={key} />
+              )
+            })
+          }
         </Row>
       </Container>
-      
+      <div onClick={() => {fn_changeShoe()}} style={{display:'none'}}>asd</div>
     </div>
   );
+}
+
+function Info(props) {
+  return (
+    <Col>
+      <img alt="없어" src={"https://codingapple1.github.io/shop/shoes" + (props.shoes.id + 1) + ".jpg"} width="100%" />
+      <h4>{props.shoes.title}</h4>
+      <p>{props.shoes.content} &amp; {props.shoes.price}</p>
+    </Col>
+  )
 }
 
 export default App;
