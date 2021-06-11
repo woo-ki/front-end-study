@@ -1,37 +1,51 @@
 <template>
+  <div class="black-bg" v-if="modalOpened">
+    <div class="white-bg">
+      <img :src="infos[clickIdx].image" class="img">
+      <h4>{{infos[clickIdx].title}}</h4>
+      <p>{{infos[clickIdx].content}}</p>
+      <p>{{infos[clickIdx].price}}원</p>
+      <button @click="modalOpened = false">닫기</button>
+    </div>
+  </div>
 
   <div class="menu">
     <a v-for="(name, i) in menus" :key="i">{{name}}</a>
   </div>
 
+  <Discount/>
+
   <div v-for="(info, i) in infos" :key="i">
-    <img :src="info.filename" class="img">
-    <h4>{{info.product}}</h4>
-    <p>{{info.price}}</p>
-    <button v-on:click="increase(i)">허위매물신고</button> <span>신고수 : {{info.report}}</span>
+    <img :src="info.image" class="img">
+    <h4 @click="setModal(i)">{{info.title}}</h4>
   </div>
 </template>
 
 <script>
+import infos from './assets/roomInfo.js';
+import Discount from './components/Discount.vue';
 
 export default {
   name: 'App',
   data() {
     return {
-      infos: [
-        {product: '역삼동원룸', price: '50만원', report: 0, filename: '/room0.jpg'},
-        {product: '천호동원룸', price: '60만원', report: 0, filename: '/room1.jpg'},
-        {product: '마포구원룸', price: '40만원', report: 0, filename: '/room2.jpg'}
-      ],
-      menus: ['Home', 'Shop', 'About']
+      infos: infos,
+      clickIdx: 0,
+      menus: ['Home', 'Shop', 'About'],
+      modalOpened: false
     }
   },
   methods: {
     increase(i) {
       this.infos[i].report++
+    },
+    setModal(i) {
+      this.modalOpened = true;
+      this.clickIdx = i;
     }
   },
   components: {
+    Discount,
   }
 }
 </script>
@@ -54,7 +68,26 @@ export default {
   padding: 10px;
 }
 .img {
-  width: 520px;
-  margin-top: 15px;
+  width: 100%;
+  margin-top: 40px;
+}
+body {
+  margin: 0px;
+}
+div {
+  box-sizing: border-box;
+}
+.black-bg {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  padding: 20px;
+}
+.white-bg {
+  width: 100%;
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
 }
 </style>
